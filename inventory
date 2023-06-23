@@ -1,2 +1,2 @@
 [vmhost]
-localhost ansible_connection=local
+helper.cdpdomain.com ansible_connection=local

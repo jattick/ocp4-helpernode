@@ -1,0 +1,39 @@
+---
+disk: sda
+helper:
+  name: "helper"
+  ipaddr: "192.168.7.77"
+dns:
+  domain: "cdpdomain.com"
+  clusterid: "ocpcluster"
+  forwarder1: "192.168.7.77"
+  forwarder2: "192.168.7.77"
+dhcp:
+  router: "1192.168.7.77"
+  bcast: "192.168.7.255"
+  netmask: "255.255.255.0"
+  poolstart: "192.168.7.10"
+  poolend: "192.168.7.30"
+  ipid: "192.168.7.0"
+  netmaskid: "255.255.255.0"
+bootstrap:
+  name: "bootstrap"
+  ipaddr: "192.168.7.20"
+  macaddr: "52:54:00:27:39:d7"
+masters:
+  - name: "master0"
+    ipaddr: "192.168.7.21"
+    macaddr: "90:b1:1c:79:ca:be"
+  - name: "master1"
+    ipaddr: "192.168.7.22"
+    macaddr: "f8:bc:12:a4:a9:0d"
+  - name: "master2"
+    ipaddr: "192.168.7.23"
+    macaddr: "f8:bc:12:a4:a8:e0"
+workers:
+  - name: "worker0"
+    ipaddr: "192.168.7.11"
+    macaddr: "f8:bc:12:a4:a9:31"
+  - name: "worker1"
+    ipaddr: "192.168.7.12"
+    macaddr: "f8:bc:12:a4:a5:eb"

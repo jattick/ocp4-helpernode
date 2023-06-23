@@ -1,0 +1,62 @@
+apiVersion: v1
+baseDomain: example.com
+compute:
+- hyperthreading: Enabled
+  name: worker
+  replicas: 0
+controlPlane:
+  hyperthreading: Enabled
+  name: master
+  replicas: 3
+metadata:
+  name: cdpcluster
+networking:
+  clusterNetworks:
+  - cidr: 10.254.0.0/16
+    hostPrefix: 24
+  networkType: OpenShiftSDN
+  serviceNetwork:
+  - 172.30.0.0/16
+platform:
+  none: {}
+pullSecret: '{"auths":{"helper.cdpdomain.com:8443": {"auth": "aW5pdDo0RzJja3JoTEFLMzB5SHBWTjYxbmxpcW1aRDVRNzk4ag==","email": "noemail@localhost"}},{...}}'
+sshKey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC/lNEV8lFDlLameXFaTzOgeJDP586AUKqEovXidmkpHY00CgJz3gbUTlhZxmczv7FR6bz2GYCfvTMvxXtp5dp4xwdgIXNbFHXKnUdvIYHwvDU3+L2ZWZZIw5rU9evQcoZLcLYI1qxcmwSRtXX9Ub2swuvknOoQX+qAIP1SiZXgzS0tGH70j5Gxo0jJKINYuMG+f6tUedX8FGzZ79/XbUqUIiVoTViiqfn8nZ8agUK9SJ9Cw9MNLwNFXISNbx5D8iWf0VQS8TXT/XGYxN9F58YqWtbC45IUIa+5c+yY2r6mQXDI8fTcgnMJ/l8H2pkIq6oA6aE6Y0fKKawraVgqGNoZVqMXovJZx3qL8Ilo27zzAhS74vl5hiApB2Zl/PuiwoRuykS0FtY859p54+AtrlmKUWaQwFzHgj5ixtYpZl1qXqTmtJA2khRfJ+YWcFyT9Jc7VahiSLhdbePyv0E4bgbPKeMqEOqnLrfsSYjqKzeTgHs6xhgP4EGnA2KvAvakld0= jpappenattick@helper.cdpdomain.com'
+additionalTrustBundle: |
+  -----BEGIN CERTIFICATE-----
+  MIIFSzCCAzOgAwIBAgIUZ1E4J2WB0O/Gl6m+BywxfdmhUVAwDQYJKoZIhvcNAQEL
+  BQAwGDEWMBQGA1UEAwwNY2RwZG9tYWluLmNvbTAeFw0yMzA2MjMxNDQ4NTVaFw0z
+  MzA2MjAxNDQ4NTVaMBgxFjAUBgNVBAMMDWNkcGRvbWFpbi5jb20wggIiMA0GCSqG
+  SIb3DQEBAQUAA4ICDwAwggIKAoICAQDGAb1GgRoIzSDO5raJXX1WQ1Zy+zJO0nPT
+  v86IPp4IDAG8HyWhbjAr425qpJsUM4ud5lZQaU5w+d9/pKRD2++xmTHB5td4zO18
+  x882xyzEkbDKF/cndCCkEM8NedpIJ3H0tWf6SP9SteYjzdMpgbw32QSzRRCpjS+i
+  KS53OBJF1kGRISDlK26ckyyj8LVjBvUPDoaSPG2t+5AcICR/iIAihLZhgiElQLZ/
+  wfyFoztgC8cwD1Ape8vGFB7hhrLd0R3HI1m7+Mv4qFuRbyXnm0B9gZJwdQBLpox5
+  Nq5L93QFYWvlwTTclWbqHDhaiBEmHskuUuFnBWIxj/G5szGKMGzat1vsKkWBO57A
+  1uf8FlXqXnXKoeGCMU0evoGAxCCg2ktSLW0pPxQnlbrazOK28sgdhdouNbFmZJZ/
+  ZVVMddSSsk3zni9qqWMmOMArI0sz4EhHVQ9JbALb339+gz1eEJ7cpnuS/zpgUqLp
+  wvoVadWVaqvnNgbGqoWFMsk1DyelbYCxXCqKuR1WpNnKUOcO9VKQM8KUJlPZAjsp
+  /snhJ5TBjrdBtMvN16+62ANj991sUbDOECIyqiVSzO49UGlUfsnA984n8/6AY15e
+  vcQ+LwVNAVFnwmRKTW8gGSCljqFTnCoUybA3hn9Imq8wNLRroAcdW792WBZPxuIC
+  VuRN4LMdawIDAQABo4GMMIGJMB0GA1UdDgQWBBRIpGh5/zq1Z4gKhW2a89q0XlLv
+  TDAfBgNVHSMEGDAWgBRIpGh5/zq1Z4gKhW2a89q0XlLvTDAPBgNVHRMBAf8EBTAD
+  AQH/MDYGA1UdEQQvMC2CFGhlbHBlci5jZHBkb21haW4uY29tgg8qLmNkcGRvbWFp
+  bi5jb22HBAoBCgIwDQYJKoZIhvcNAQELBQADggIBAGFtjoCb5qFXUQBNjCACMtu8
+  7JdkSyiw+sQYN6IuWrDguelfFnuy/iLvGDx4AaweWPPpfg4+blSCaR3Xtz1a+Hnu
+  Y+1MxQ6lp19b8CKQ+m29V0txGhCeef0uGGsjCm5+NBhrDKndq+HkCdvU+oG2nmij
+  yKQJypz5ZXBa4DaNKZGLXBzOv5Rl+w/j+XpylzJXz0DekcnMTdlTpI5cBfR+CVtU
+  g9KOK6gmeyMd/YbdK/IqBQ0MEU3gMz2ub5GgtU9y9hQiifVTjrCHoZdioAX+epV8
+  vQvpyxsqlNRSzPoN3Ww6f36kW89WbRAES4S5bE0gTqo3522ze/1nSokOY8IfzBzU
+  7v38dooysAVxCM0ufTcYntp540vxoccEDt59KdyuTfZRgs/kWRm3nYVTvgHkRy3y
+  oJdAZjrprrHqr74qsysJr+HWTQnmYaY19ZaFeKPpSlAPgxTrmQn70BuHJA1M5sAw
+  3wcOWn7ifIX5xIeEl61tH9xLyvCgsMFrZvnCoNTcY7KIisuNLxuxDodolo2B2FX1
+  c50UyssfkmfKca/AL2vj5UEDRlmpqzRbxzUh+9GMxC82w/qrXy7+s44LyK6OQAWO
+  Lpu1abHygsx1tVrhGLrw2YGWvg4cU03p4ttH7Cb7V6boS/8Es84eYO32Gk0c3B98
+  +TJ0fS3uvE1xx2vbISFC
+  -----END CERTIFICATE-----
+mageContentSources:
+- mirrors:
+  - helper.cdpdomain.com:8443/ocp4/openshift4
+  source: quay.io/openshift-release-dev/ocp-release
+- mirrors:
+  - helper.cdpdomain.com:8443/ocp4/openshift4
+  source: quay.io/openshift-release-dev/ocp-v4.0-art-dev
